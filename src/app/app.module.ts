@@ -16,16 +16,13 @@ import { PlaceholderDirective } from './shared/placeholder/placeholder.directive
 import { RecipeService } from './recipes/recipe.service';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownDirective,
-    AuthComponent,
-    LoadingSpinnerComponent,
-    AlertComponent,
-    PlaceholderDirective
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +32,7 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     AppRoutingModule,
     RecipesModule,
     ShoppingListModule,
+    SharedModule
   ],
   providers: [
     ShoppingListService,
@@ -45,9 +43,6 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
       multi: true
     }
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    AlertComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
