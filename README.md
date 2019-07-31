@@ -12,6 +12,9 @@ after the authentication token expires (one hour). There are additional features
 such as a loading spinner while fetching data, and an alert modal that pops up
 if you enter incorrect credentials when logging in or enter an existing email
 address when signing up. There is a LoggingService that's just used for illustrating
-differences based on where a service is provided. Routing is handled through
-code using Angular RouterModule. This application is hosted on a Firebase Hosting
-static server at: https://udemy-angular8course.firebaseapp.com 
+differences based on where a service is provided, so it's not used by anything now.
+Routing is handled through code using Angular RouterModule. Initially, the application
+state was handled through services, components and RxJS; but now the state is being 
+outsourced to NgRx store.
+This application is hosted on a Firebase Hosting static server at:
+https://udemy-angular8course.firebaseapp.com
