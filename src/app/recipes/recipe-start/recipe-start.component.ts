@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataStorageService } from '../../shared/data-storage.service';
+
 @Component({
   selector: 'app-recipe-start',
   templateUrl: './recipe-start.component.html',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeStartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
+    this.dataStorageService.fetchRecipes().subscribe();
   }
 
 }
