@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs/Subscription';
 import { Store } from '@ngrx/store';
 
 import { Ingredient } from '../../shared/ingredient.model';
-// import { ShoppingListService } from '../shopping-list.service';
 import * as ShoppingListActions from '../store/shopping-list.actions';
 import * as fromShoppingList from '../store/shopping-list.reducer';
 
@@ -17,13 +16,9 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
   @ViewChild('f', { static: false }) slForm: NgForm;
   subscription: Subscription;
   editMode = false;
-  // editedIngIndex: number;
   editedIng: Ingredient;
 
-  constructor(
-    // private slService: ShoppingListService,
-    private store: Store<fromShoppingList.AppState>
-  ) { }
+  constructor(private store: Store<fromShoppingList.AppState>) { }
 
   ngOnInit() {
     this.subscription = this.store.select('shoppingList').subscribe(stateData => {
@@ -38,29 +33,16 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
         this.editMode = false;
       }
     });
-    // this.subscription = this.slService.startedEditing.subscribe(
-    //   (index: number) => {
-    //     this.editedIngIndex = index;
-    //     this.editMode = true;
-    //     this.editedIng = this.slService.getIngredient(index);
-    //     this.slForm.setValue({
-    //       name: this.editedIng.name,
-    //       amount: this.editedIng.amount
-    //     })
-    //   }
-    // );
   }
 
   onSubmit(form: NgForm) {
     const value = form.value;
     const newIngredient = new Ingredient(value.name, value.amount);
     if (this.editMode) {
-      // this.slService.updateIngredient(this.editedIngIndex, newIngredient);
       this.store.dispatch(
         new ShoppingListActions.UpdateIngredient(newIngredient)
       );
     } else {
-      // this.slService.addIngredient(newIngredient);
       this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient));
     }
     this.editMode = false;
@@ -74,7 +56,6 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
   }
 
   onDelete() {
-    // this.slService.deleteIngredient(this.editedIngIndex);
     this.store.dispatch(new ShoppingListActions.DeleteIngredient());
     this.onClear();
   }
