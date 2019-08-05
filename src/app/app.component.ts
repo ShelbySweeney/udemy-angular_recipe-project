@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<fromApp.AppState>) {}
 
   ngOnInit() {
-    this.store.dispatch(new AuthActions.AutoLogin());
+    this.store.dispatch(AuthActions.autoLogin());
   }
 
 }

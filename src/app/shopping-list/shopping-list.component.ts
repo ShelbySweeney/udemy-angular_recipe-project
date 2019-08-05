@@ -21,7 +21,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   onEditIngredient(index: number) {
-    this.store.dispatch(new ShoppingListActions.StartEdit(index));
+    this.store.dispatch(ShoppingListActions.startEdit({index}));
   }
 
   ngOnDestroy(): void {}
