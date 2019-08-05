@@ -158,8 +158,6 @@ export class AuthEffects {
          expirationDate: new Date(userData._tokenExpirationDate),
          redirect: false
        });
-       // const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
-       // this.autoLogout(expirationDuration);
      }
      return { type: 'DUMMY' };
    })
