@@ -17,3 +17,6 @@ RxJS (see git branch before_NgRx); but now the state is being outsourced to NgRx
 store.
 This application is hosted on a Firebase Hosting static server at:
 https://udemy-angular8course.firebaseapp.com
+
+
+In this branch, the NgRx syntax has been changed from the old to the new. 
