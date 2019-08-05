@@ -7,7 +7,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "serve": "node serve-script",
+    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve:ssr": "node dist/server",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+    "build:client-and-server-bundles": "ng build --prod && ng run recipe-project:server:production"
   },
   "private": true,
   "dependencies": {
@@ -18,13 +23,20 @@
     "@angular/forms": "^8.0.0",
     "@angular/platform-browser": "^8.0.0",
     "@angular/platform-browser-dynamic": "^8.0.0",
+    "@angular/platform-server": "^8.0.0",
     "@angular/router": "^8.1.2",
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/core": "^6.0.0",
+    "@nestjs/platform-express": "^6.0.0",
     "@ngrx/effects": "^8.2.0",
     "@ngrx/router-store": "^8.2.0",
     "@ngrx/store": "^8.1.0",
+    "@nguniversal/express-engine": "^8.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "^8.0.0",
     "bootstrap": "^3.3.7",
     "core-js": "^3.1.2",
     "npm": "^6.10.1",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.0.0",
     "tslib": "^1.9.0",
@@ -47,9 +59,14 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "nodemon": "^1.18.11",
     "protractor": "~5.4.0",
+    "rimraf": "^2.6.3",
+    "ts-loader": "^5.2.0",
     "ts-node": "~8.1.0",
     "tslint": "~5.11.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "wait-on": "^3.2.0",
+    "webpack-cli": "^3.1.0"
   }
 }
