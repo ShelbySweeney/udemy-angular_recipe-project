@@ -1,10 +1,12 @@
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { switchMap, map } from 'rxjs/operators';
 
 import * as RecipeActions from './recipe.actions'
 import { Recipe } from '../recipe.model';
 
+@Injectable()
 export class RecipeEffects {
   @Effect()
   fetchRecipes = this.actions$.pipe(
